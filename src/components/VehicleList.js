@@ -1,33 +1,51 @@
 import React, { Component } from 'react';
-import { getData } from '../api';
+import { connect } from 'react-redux'
+import { getVehicles } from '../api';
 
-export default
+import VehicleListItem from './VehicleListItem'
+import SpanList from './SpanList'
+
 class VehicleList extends Component {
-
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			data: null
-		}
+	renderVehicles() {
+		return this.props.vehicles.map((vehicle, i) => {
+			return (
+					<VehicleListItem key={i} vehicle={vehicle} slideNumber={i + 1}/>
+			)
+		})
 	}
 
-	componentDidMount() {
-		getData((data) => {
-			this.setState({
-				data
-			})
-		});
+	renderSpans() {
+		return this.props.vehicles.map((vehicle, i) => {
+			return (
+					<SpanList key={i} slideNumber={i + 1}/>
+			)
+		})
+	}
+
+	componentWillMount() {
+		getVehicles()
 	}
 
 	render() {
-		if(this.state.data) {
-			console.log(this.state.data);
+		console.log('props.vehicles from vehicleList...', this.props.vehicles)
+		if(this.props.vehicles) {
 		    return (
-			    <h1>Hello World</h1>
+					<div>
+						<div className="vehicleList carousel-wrapper">
+							  {this.renderSpans()}
+								{this.renderVehicles()}
+						</div>
+					</div>
 		    )
 	    }
 
 		return (<h1>Loading...</h1>);
 	}
 }
+
+function mapStateToProps(state) {
+	console.log('state from mapStateToProps', state.vehiclesReducer[0])
+	return { vehicles: state.vehiclesReducer[0] }
+}
+
+export default connect(mapStateToProps)(VehicleList)

@@ -1,6 +1,9 @@
 {
+    "plugins": [
+      "file-loader"
+    ],
     "presets": [
         "react",
         "es2015"
-    ]
+    ],
 }

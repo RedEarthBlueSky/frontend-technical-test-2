@@ -3,6 +3,10 @@
 * handling asynchronous data fetching
 **/
 
+import Axios from 'axios'
+import store from '../store'
+import { fetchVehicles } from '../actions'
+
 export const getData = (cb) => {
     const vehicles = new XMLHttpRequest();
     vehicles.open('GET', 'http://localhost:9988/api/vehicle');
@@ -17,3 +21,19 @@ export const getData = (cb) => {
 
 	vehicles.send();
 };
+
+export const getVehicles = () => {
+  const url = 'http://localhost:9988/api/vehicle'
+  return Axios.get(url)
+    .then(res => {
+      if(res.status !== 200) {
+        console.log('API issue.  Status:  ', res.status)
+        return;
+      }
+      console.log('res from getVehicles...', res.data)
+      store.dispatch(fetchVehicles(res.data))
+    })
+    .catch(err => {
+      console.log('Fetch error:  ', err)
+    })
+}
