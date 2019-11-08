@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
+import { getVehicleDetail } from '../api';
+
 class VehicleListItem extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+
   }
 
   findNext(slideNumber) {
@@ -18,8 +24,8 @@ class VehicleListItem extends Component {
   render() {
     const { id, modelYear, url, media: [media] } = this.props.vehicle
     const slideNumber = this.props.slideNumber
-    console.log(media.url)
-
+    // console.log(media.url)
+    getVehicleDetail(id)
     return (
         <div className={`carousel-item item-${slideNumber}`}>
           <a className="arrow arrow-prev" href={this.findPrev(slideNumber)}></a>

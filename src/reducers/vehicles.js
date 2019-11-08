@@ -1,13 +1,22 @@
 
-import { FETCH_VEHICLES } from '../actions/types'
+import { FETCH_VEHICLES, FETCH_VEHICLE_DETAIL } from '../actions/types'
 
 
-export default function(state = [], action) {
+export function vehiclesReducer(state = [], action) {
   switch(action.type) {
     case FETCH_VEHICLES:
-      console.log('action.payload.vehicles from reducers... ', action.payload.vehicles)
       const vehicles = action.payload.vehicles
       return [...state, vehicles ]
+    default:
+      return state
+  }
+}
+
+export function vehicleDetailReducer(state = [], action) {
+  switch(action.type) {
+    case FETCH_VEHICLE_DETAIL:
+      const detail = action.payload
+      return [...state, detail]
     default:
       return state
   }

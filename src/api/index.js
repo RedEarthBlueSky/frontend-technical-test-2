@@ -5,7 +5,7 @@
 
 import Axios from 'axios'
 import store from '../store'
-import { fetchVehicles } from '../actions'
+import { fetchVehicles, fetchVehicleDetail } from '../actions'
 
 export const getData = (cb) => {
     const vehicles = new XMLHttpRequest();
@@ -30,8 +30,23 @@ export const getVehicles = () => {
         console.log('API issue.  Status:  ', res.status)
         return;
       }
-      console.log('res from getVehicles...', res.data)
       store.dispatch(fetchVehicles(res.data))
+    })
+    .catch(err => {
+      console.log('Fetch error:  ', err)
+    })
+}
+
+export const getVehicleDetail = (id) => {
+  const url = `http://localhost:9988/api/vehicle/`
+  return Axios.get(url + id)
+    .then(res => {
+      if(res.status !== 200) {
+        console.log('API issue.  Status:  ', res.status)
+        return;
+      }
+      // console.log('res from getVehicleDetail...', res.data)
+      store.dispatch(fetchVehicleDetail(res.data))
     })
     .catch(err => {
       console.log('Fetch error:  ', err)

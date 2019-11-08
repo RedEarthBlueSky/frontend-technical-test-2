@@ -17,7 +17,7 @@ class VehicleList extends Component {
 	renderSpans() {
 		return this.props.vehicles.map((vehicle, i) => {
 			return (
-					<SpanList key={i} slideNumber={i + 1}/>
+				<SpanList key={i} slideNumber={i + 1}/>
 			)
 		})
 	}
@@ -27,7 +27,6 @@ class VehicleList extends Component {
 	}
 
 	render() {
-		console.log('props.vehicles from vehicleList...', this.props.vehicles)
 		if(this.props.vehicles) {
 		    return (
 					<div>
@@ -44,7 +43,6 @@ class VehicleList extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('state from mapStateToProps', state.vehiclesReducer[0])
 	return { vehicles: state.vehiclesReducer[0] }
 }
 
