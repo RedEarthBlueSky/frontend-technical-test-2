@@ -1,35 +1,18 @@
 $bg-colour: #fff;
+$font: "Helvetica", Helvetica, Arial, sans-serif;
 
 body {
 	background-color: $bg-colour;
-
-	.vehicleList {
-		height: 400px;
-		width: 700px;
-
-		.vehicleLine {
-			height: 100%;
-			list-style-type: none;
-			margin: 10px;
-			width: 100%;
-
-			.vehicleImage {
-				width: 700px;
-				height: 400px;
-				background-size: cover;
-				background-position: center;
-				background-color: '#fff';
-				// background-image: url('https://as2.ftcdn.net/jpg/02/01/12/93/500_F_201129343_e1HsStjw8cbFUJFWHgzzsL0lEl0IjelE.jpg')
-			}
-		}
+	font-family: $font;
 	}
-
-
 	.carousel-wrapper{
-	  height:400px;
+		height:400px;
 	  position:relative;
 	  width:800px;
 	  margin:0 auto;
+		@media screen and (max-width: 890px) {
+			width:620px;
+		}
 	}
 
 	.carousel-item{
@@ -38,7 +21,7 @@ body {
 	  bottom:0;
 	  left:0;
 	  right:0;
-	  padding:25px 50px;
+	  padding:25px;
 	  opacity:0;
 	  transition: all 0.5s ease-in-out;
 	}
@@ -119,4 +102,3 @@ body {
 	  z-index: 3;
 	  opacity: 1;
 	}
-}

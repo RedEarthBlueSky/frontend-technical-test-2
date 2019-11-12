@@ -1,5 +1,6 @@
 
 import { FETCH_VEHICLES, FETCH_VEHICLE_DETAIL } from '../actions/types'
+import { getVehicleDetail } from '../api'
 
 
 export function vehiclesReducer(state = [], action) {
@@ -16,7 +17,7 @@ export function vehicleDetailReducer(state = [], action) {
   switch(action.type) {
     case FETCH_VEHICLE_DETAIL:
       const detail = action.payload
-      return [...state, detail]
+      return [ ...state, detail ]
     default:
       return state
   }
