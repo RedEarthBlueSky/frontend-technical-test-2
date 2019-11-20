@@ -1,6 +1,5 @@
 //  actions index
 import { FETCH_VEHICLES, FETCH_VEHICLE_DETAIL } from './types'
-import { getVehicleDetail } from '../api'
 
 export function fetchVehicles(data) {
   return {
@@ -10,8 +9,12 @@ export function fetchVehicles(data) {
 }
 
 export function fetchVehicleDetail(detail) {
-  return {
-    type: FETCH_VEHICLE_DETAIL,
-    payload: detail
+  return dispatch => {
+    setTimeout(() => {
+      dispatch({
+        type: FETCH_VEHICLE_DETAIL,
+        payload: detail
+      })
+    }, 1000)
   }
 }

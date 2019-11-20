@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import store from '../store'
 import VehicleDetail from './VehicleDetail'
+import { connect } from 'react-redux'
+import { getVehicleDetail } from '../api'
 
 class VehicleListItem extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      detail: null
+      details: {}
     }
   }
 
@@ -21,26 +22,33 @@ class VehicleListItem extends Component {
     return `#item-${slideNumber -1}`
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const id = this.props.vehicle.id
+    const detail = await getVehicleDetail(id)
+    this.setState({ details: detail })
   }
 
   render() {
     const { id, modelYear, url, media: [media] } = this.props.vehicle
     const { name } = media
     const slideNumber = this.props.slideNumber
-    getVehicleDetail(this.props.vehicle.id)
-    return (
-        <div className={`carousel-item item-${slideNumber}`}>
-          <a className="arrow arrow-prev" href={this.findPrev(slideNumber)}></a>
-          <a className="arrow arrow-next" href={this.findNext(slideNumber)}></a>
-          <div>
+    if(this.state.details) {
+      const { description, price } = this.state.details
+      console.log(description, price)
+      return (
+          <div className={`carousel-item item-${slideNumber}`}>
+            <a className="arrow arrow-prev" href={this.findPrev(slideNumber)}></a>
+            <a className="arrow arrow-next" href={this.findNext(slideNumber)}></a>
             <VehicleDetail
               name={name.toUpperCase()}
               id={id.toUpperCase()}
+              price={price}
+              description={description}
             />
           </div>
-        </div>
-    )
+      )
+    }
+    return (<h1>Loading...</h1>);
   }
 };
 

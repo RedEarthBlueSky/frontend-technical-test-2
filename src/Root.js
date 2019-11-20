@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 
-export default ({ children, initialState = {} }) => {
+export default ({ children }) => {
 
   return (
     <Provider store={store}>

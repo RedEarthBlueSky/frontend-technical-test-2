@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux'
-import reduxPromise from 'redux-promise'
+import thunk from 'redux-thunk'
 import reducers from './reducers'
 
 const initialState = {}
@@ -7,7 +7,7 @@ const initialState = {}
 const store = createStore(
   reducers,
   initialState,
-  applyMiddleware(reduxPromise)
+  applyMiddleware(thunk)
 )
 
 export default store

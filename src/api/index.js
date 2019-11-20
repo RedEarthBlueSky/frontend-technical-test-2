@@ -18,26 +18,8 @@ export const getData = (cb) => {
 		    }
 		}
 	};
-
 	vehicles.send();
 };
-
-export const getDetail = (cb, id) => {
-    const vehicles = new XMLHttpRequest();
-    vehicles.open('GET', `http://localhost:9988/api/vehicle${id}`);
-
-    vehicles.onreadystatechange = function() {
-        if(vehicles.readyState === 4) {
- 		    if(vehicles.status === 200) {
- 			    cb(vehicles.responseText);
-		    }
-		}
-	};
-
-	vehicles.send();
-};
-
-
 
 export const getVehicles = () => {
   const url = 'http://localhost:9988/api/vehicle'
@@ -55,16 +37,14 @@ export const getVehicles = () => {
 }
 
 export const getVehicleDetail = (id) => {
-  const url = `http://localhost:9988/api/vehicle/`
-  return Axios.get(url + id)
-  console.log(url)
+  const url = `http://localhost:9988/api/vehicle/${id}`
+  return Axios.get(url)
     .then(res => {
       if(res.status !== 200) {
         console.log('API issue.  Status:  ', res.status)
         return;
       }
-      console.log(res.data)
-      store.dispatch(fetchVehicleDetail(res.data))
+       return res.data
     })
     .catch(err => {
       console.log('Fetch error:  ', err)

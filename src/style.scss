@@ -4,18 +4,59 @@ $font: "Helvetica", Helvetica, Arial, sans-serif;
 body {
 	background-color: $bg-colour;
 	font-family: $font;
-	}
-	.carousel-wrapper{
-		height:400px;
-	  position:relative;
-	  width:800px;
-	  margin:0 auto;
-		@media screen and (max-width: 890px) {
-			width:620px;
+	width: 100%;
+	height: 100vh;
+		#app {
+			height: 100vh;
+			.mainWrapper {
+				border: 1px solid #D1D5DA;
+				width: 90%;
+				max-width: 960px;
+				display: block;
+				height: 95vh;
+				border-radius: 5px;
+				padding-top: 30px;
+				margin: 0 auto;
+				margin-top: 10px;
+			}
+			.carousel-wrapper{
+				height:400px;
+				position:relative;
+				width:800px;
+				margin:0 auto;
+				@media screen and (max-width: 890px) {
+					width:620px;
+				}
+			}
 		}
 	}
 
-	.carousel-item{
+	.detailsWrapper {
+		position: relative;
+    top: 100%;
+    padding: 20px;
+	}
+
+	.detailBlock {
+		position: relative;
+		text-align: center;
+		top: 400px;
+		width: 100%;
+		h1 {
+			display: inline-block;
+			margin: 23px auto 16px auto;
+			border-top: 2px solid;
+			padding-top: 10px;
+			border-bottom: 2px solid;
+			padding-bottom: 10px;
+		}
+		h2 {
+			font-weight: normal;
+      color: #6A6E72;
+		}
+	}
+
+	.carousel-item {
 	  position:absolute;
 	  top:0;
 	  bottom:0;
@@ -28,20 +69,20 @@ body {
 
 	.arrow{
 	  border: solid black;
-	    border-width: 0 3px 3px 0;
-	    display: inline-block;
-	    padding: 12px;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 8px;
 	}
 
 	.arrow-prev{
-	  left:-30px;
+	  left:-20px;
 	  position:absolute;
 	  top:50%;
 	  transform:translateY(-50%) rotate(135deg);
 	}
 
 	.arrow-next {
-	  right:-30px;
+	  right:-20px;
 		position:absolute;
 		top:50%;
 		transform:translateY(-50%) rotate(-45deg);
@@ -71,7 +112,7 @@ body {
 	}
 
 	.item-2 {
-	  background:url('https://www.saxton4x4.co.uk/images/used-vehicle-photos/AU67TYG-1.jpg');
+	  background:url('http://i4.aroq.com/3/2017-08-08-12-39-rr_velar_18my_386_glhd_pr_location_static_010317_cropped_90.jpg');
 	   background-size:cover;
 	}
 

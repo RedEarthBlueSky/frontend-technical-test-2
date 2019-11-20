@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
-import { vehiclesReducer, vehicleDetailReducer } from './vehicles'
+import { vehiclesReducer } from './vehicles'
+import { vehicleDetailReducer } from './details'
 
 export default combineReducers({
   vehiclesReducer,

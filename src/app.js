@@ -7,7 +7,7 @@ import VehicleList from './components/VehicleList';
 
 render(
   <Root>
-    <mainWrapper>
+    <mainWrapper className="mainWrapper">
       <VehicleList />
     </mainWrapper>
   </Root>
