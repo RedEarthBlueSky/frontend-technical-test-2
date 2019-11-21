@@ -15,17 +15,22 @@ body {
 				display: block;
 				height: 95vh;
 				border-radius: 5px;
-				padding-top: 30px;
+				padding-top: 15px;
 				margin: 0 auto;
-				margin-top: 10px;
+				@media screen and (max-width: 768px) {
+					height: 30vh;
+				}
 			}
 			.carousel-wrapper{
 				height:400px;
 				position:relative;
-				width:800px;
+				width:85%;
 				margin:0 auto;
 				@media screen and (max-width: 890px) {
-					width:620px;
+					max-width:620px;
+				}
+				@media screen and (max-width: 768px) {
+					height: 200px;
 				}
 			}
 		}
@@ -49,10 +54,20 @@ body {
 			padding-top: 10px;
 			border-bottom: 2px solid;
 			padding-bottom: 10px;
+			@media screen and (max-width: 768px) {
+				margin-bottom: 5px;
+				margin-top: 18px;
+			}
 		}
 		h2 {
 			font-weight: normal;
       color: #6A6E72;
+		}
+		@media screen and (max-width: 768px) {
+			float: right;
+			font-size: .7rem;
+			top: -40px;
+			width: 50%;
 		}
 	}
 
@@ -109,26 +124,61 @@ body {
 	  opacity: 1;
 	  background:url('http://i4.aroq.com/3/2017-08-08-12-39-rr_velar_18my_386_glhd_pr_location_static_010317_cropped_90.jpg');
 	  background-size:cover;
+		@media screen and (max-width: 929px) {
+			background-size: 100% 100%;
+		}
+		@media screen and (max-width: 768px) {
+			background-size: 45% 90%;
+			background-repeat: no-repeat;
+		}
 	}
 
 	.item-2 {
 	  background:url('http://i4.aroq.com/3/2017-08-08-12-39-rr_velar_18my_386_glhd_pr_location_static_010317_cropped_90.jpg');
 	   background-size:cover;
+		 @media screen and (max-width: 929px) {
+			 background-size: 100% 100%;
+		 }
+		 @media screen and (max-width: 768px) {
+			 background-size: 45% 90%;
+			 background-repeat: no-repeat;
+		 }
 	}
 
 	.item-3 {
 	  background:url('https://9d1e9eb5fed27c4d36fa-06f413eb72ecd5f43300a95e337d16a7.ssl.cf1.rackcdn.com/SALZL2GX9LH042033/239694d64de880f9d93847a57113a330.jpg');
 	   background-size:cover;
+		 @media screen and (max-width: 929px) {
+			 background-size: 100% 100%;
+		 }
+		 @media screen and (max-width: 768px) {
+			 background-size: 45% 90%;
+			 background-repeat: no-repeat;
+		 }
 	}
 
 	.item-4 {
 		background:url('https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
 		 background-size:cover;
+		 @media screen and (max-width: 929px) {
+			 background-size: 100% 100%;
+		 }
+		 @media screen and (max-width: 768px) {
+			 background-size: 45% 90%;
+			 background-repeat: no-repeat;
+		 }
 	}
 
 	.item-5 {
 		background:url('https://images.pexels.com/photos/225841/pexels-photo-225841.jpeg?cs=srgb&dl=4x4-automobile-automotive-225841.jpg&fm=jpg');
 		 background-size:cover;
+		 @media screen and (max-width: 929px) {
+			 background-size: 100% 100%;
+		 }
+		 @media screen and (max-width: 768px) {
+			 background-size: 45% 90%;
+			 background-repeat: no-repeat;
+		 }
 	}
 
 	*:target ~ .item-1 {
