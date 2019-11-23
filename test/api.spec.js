@@ -11,7 +11,7 @@ describe("getData example test", function() {
     });
 
     it('should respond with an array of vehicles', (done) => {
-        getData((response) => {
+        getDataz((response) => {
             const data = JSON.parse(response);
             expect(Array.isArray(data.vehicles)).to.equal(true);
             done();

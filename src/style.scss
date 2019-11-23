@@ -1,5 +1,6 @@
 $bg-colour: #fff;
 $font: "Helvetica", Helvetica, Arial, sans-serif;
+$breakpoint-mobile: 768px;
 
 body {
 	background-color: $bg-colour;
@@ -17,7 +18,7 @@ body {
 				border-radius: 5px;
 				padding-top: 15px;
 				margin: 0 auto;
-				@media screen and (max-width: 768px) {
+				@media screen and (max-width: $breakpoint-mobile) {
 					height: 30vh;
 				}
 			}
@@ -29,7 +30,7 @@ body {
 				@media screen and (max-width: 890px) {
 					max-width:620px;
 				}
-				@media screen and (max-width: 768px) {
+				@media screen and (max-width: $breakpoint-mobile) {
 					height: 200px;
 				}
 			}
@@ -54,7 +55,7 @@ body {
 			padding-top: 10px;
 			border-bottom: 2px solid;
 			padding-bottom: 10px;
-			@media screen and (max-width: 768px) {
+			@media screen and (max-width: $breakpoint-mobile) {
 				margin-bottom: 5px;
 				margin-top: 18px;
 			}
@@ -63,7 +64,7 @@ body {
 			font-weight: normal;
       color: #6A6E72;
 		}
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: $breakpoint-mobile) {
 			float: right;
 			font-size: .7rem;
 			top: -40px;
@@ -127,7 +128,7 @@ body {
 		@media screen and (max-width: 929px) {
 			background-size: 100% 100%;
 		}
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: $breakpoint-mobile) {
 			background-size: 45% 90%;
 			background-repeat: no-repeat;
 		}
@@ -139,7 +140,7 @@ body {
 		 @media screen and (max-width: 929px) {
 			 background-size: 100% 100%;
 		 }
-		 @media screen and (max-width: 768px) {
+		 @media screen and (max-width: $breakpoint-mobile) {
 			 background-size: 45% 90%;
 			 background-repeat: no-repeat;
 		 }
@@ -151,7 +152,7 @@ body {
 		 @media screen and (max-width: 929px) {
 			 background-size: 100% 100%;
 		 }
-		 @media screen and (max-width: 768px) {
+		 @media screen and (max-width: $breakpoint-mobile) {
 			 background-size: 45% 90%;
 			 background-repeat: no-repeat;
 		 }
@@ -163,7 +164,7 @@ body {
 		 @media screen and (max-width: 929px) {
 			 background-size: 100% 100%;
 		 }
-		 @media screen and (max-width: 768px) {
+		 @media screen and (max-width: $breakpoint-mobile) {
 			 background-size: 45% 90%;
 			 background-repeat: no-repeat;
 		 }
@@ -175,7 +176,7 @@ body {
 		 @media screen and (max-width: 929px) {
 			 background-size: 100% 100%;
 		 }
-		 @media screen and (max-width: 768px) {
+		 @media screen and (max-width: $breakpoint-mobile) {
 			 background-size: 45% 90%;
 			 background-repeat: no-repeat;
 		 }

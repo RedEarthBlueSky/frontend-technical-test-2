@@ -34,7 +34,6 @@ class VehicleListItem extends Component {
     const slideNumber = this.props.slideNumber
     if(this.state.details) {
       const { description, price } = this.state.details
-      console.log(description, price)
       return (
           <div className={`carousel-item item-${slideNumber}`}>
             <a className="arrow arrow-prev" href={this.findPrev(slideNumber)}></a>

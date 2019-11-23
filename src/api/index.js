@@ -7,20 +7,6 @@ import Axios from 'axios'
 import store from '../store'
 import { fetchVehicles, fetchVehicleDetail } from '../actions'
 
-export const getData = (cb) => {
-    const vehicles = new XMLHttpRequest();
-    vehicles.open('GET', 'http://localhost:9988/api/vehicle');
-
-    vehicles.onreadystatechange = function() {
-        if(vehicles.readyState === 4) {
- 		    if(vehicles.status === 200) {
- 			    cb(vehicles.responseText);
-		    }
-		}
-	};
-	vehicles.send();
-};
-
 export const getVehicles = () => {
   const url = 'http://localhost:9988/api/vehicle'
   return Axios.get(url)
@@ -37,6 +23,7 @@ export const getVehicles = () => {
 }
 
 export const getVehicleDetail = (id) => {
+  if(!id) console.log('No id provided to API') return
   const url = `http://localhost:9988/api/vehicle/${id}`
   return Axios.get(url)
     .then(res => {
