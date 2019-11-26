@@ -1,20 +1,39 @@
 /**
  * Created by brett.hadley on 10/10/2016.
  */
-const expect = require('chai').expect;
-const getData = require('../src/api').getData;
-const server = require('../server');
+ const expect = require('chai').expect;
+ import { getVehicles, getVehicleDetail } from '../src/api'
+ const server = require('../server');
 
-describe("getData example test", function() {
-    beforeEach(() => {
-        server.listen(9988);
-    });
+ import store from '../src/store'
 
-    it('should respond with an array of vehicles', (done) => {
-        getDataz((response) => {
-            const data = JSON.parse(response);
-            expect(Array.isArray(data.vehicles)).to.equal(true);
-            done();
+
+ describe('Test Vehicle Detail.', function() {
+    let vehicles
+    before(done => {
+      server.listen(9988)
+      getVehicles()
+        .then(() => {
+          vehicles = store.getState().vehiclesReducer[0]
+          done()
         })
     })
-});
+
+    function vehicleDetailProperty(property) {
+      it(`Vehicle Detail contains a property: ${property}`, done => {
+        Promise.all(vehicles.map(vehicle =>
+          getVehicleDetail(vehicle.id)
+        ))
+        .then(data => {
+          data.forEach(vehicle => {
+            expect(vehicle).to.have.property(`${property}`).that.is.a('string')
+          })
+        })
+        done()
+      })
+    }
+
+    vehicleDetailProperty('price')
+    vehicleDetailProperty('id')
+    vehicleDetailProperty('description')
+})

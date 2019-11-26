@@ -21,7 +21,10 @@ class VehicleList extends Component {
 	renderSpans() {
 		return this.props.vehicles.map((vehicle, i) => {
 			return (
-				<SpanList key={i} slideNumber={i + 1}/>
+				<SpanList
+					key={i}
+					slideNumber={i + 1}
+				/>
 			)
 		})
 	}
