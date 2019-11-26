@@ -9,14 +9,19 @@
 
 
  describe('Test Vehicle Detail.', function() {
-    let vehicles
+    let vehicles, api
+
     before(done => {
-      server.listen(9988)
+      api = server.listen(9988)
       getVehicles()
         .then(() => {
           vehicles = store.getState().vehiclesReducer[0]
           done()
         })
+    })
+
+    after(() => {
+      api.close()
     })
 
     function vehicleDetailProperty(property) {

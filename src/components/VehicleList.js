@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import VehicleListItem from './VehicleListItem'
 import SpanList from './SpanList'
@@ -34,7 +35,8 @@ class VehicleList extends Component {
 	}
 
 	render() {
-		if(this.props.vehicles) {
+		const vehicles = this.props.vehicles
+		if(vehicles) {
 		    return (
 					<div>
 						<div className="vehicleList carousel-wrapper">
@@ -55,3 +57,10 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(VehicleList)
+
+VehicleList.propTypes = {
+  vehicles: PropTypes.arrayOf(PropTypes.object),
+  getVehicles: PropTypes.func,
+	SpanList: PropTypes.elementType,
+	VehicleListItem: PropTypes.elementType
+}
